@@ -115,6 +115,7 @@ cfg_if! {
                  target_arch = "arm",
                  target_arch = "aarch64",
                  target_arch = "riscv64",
+                 target_arch = "riscv32",
                  target_arch = "s390x",
                  target_arch = "csky",
                  target_arch = "loongarch64"))] {
@@ -218,7 +219,7 @@ cfg_if! {
     // where S stands for size (int, long, struct...)
     // where T stands for type ('f','v','X'...)
     // where N stands for NR (NumbeR)
-    if #[cfg(any(target_arch = "x86", target_arch = "arm", target_arch = "csky"))] {
+    if #[cfg(any(target_arch = "x86", target_arch = "arm", target_arch = "csky", target_arch = "riscv32"))] {
         pub const FS_IOC_GETFLAGS: ::Ioctl = 0x80046601;
         pub const FS_IOC_SETFLAGS: ::Ioctl = 0x40046602;
         pub const FS_IOC_GETVERSION: ::Ioctl = 0x80047601;
